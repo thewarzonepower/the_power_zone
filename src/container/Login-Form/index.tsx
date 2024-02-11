@@ -63,7 +63,7 @@ function ColorSchemeToggle(props: IconButtonProps) {
   );
 }
 
-const LoginForm:React.FC <Props> =({}) => {
+const LoginForm:React.FC <Props> =() => {
     const navigate =useNavigate()
   return (
     <CssVarsProvider defaultMode="dark" disableTransitionOnChange>

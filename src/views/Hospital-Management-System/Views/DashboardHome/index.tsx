@@ -1,8 +1,7 @@
 import React from "react";
-import { AspectRatio, Box, Breadcrumbs, Button, Card, CardContent, CardOverflow, Grid, Link, Typography } from "@mui/joy";
+import { AspectRatio, Box, Breadcrumbs, Card, CardContent, CardOverflow, Grid, Link, Typography } from "@mui/joy";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 import { Hotel, Person2, Attribution, Woman2, Vaccines, Science, Badge, HelpCenter } from '@mui/icons-material';
 
 import { TotalCount } from '../../../../utils/data'
@@ -21,7 +20,7 @@ interface Props {
 
 }
 
-const DashboardHome: React.FC<Props> = ({ }) => {
+const DashboardHome: React.FC<Props> = () => {
     return (
         <Box
             component="main"

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HospitalMangementDash from "../container/Hospita-Management-Admin-Agent";
 import HospitalMangementDashboardHome from "../views/Hospital-Management-System/Views/DashboardHome";
 import HospitalMangementPatientDash from "../views/Hospital-Management-System/Views/ManagePatient";
@@ -14,7 +14,7 @@ interface Props {
 
 }
 
-const AppRoute: React.FC<Props> = ({ }) => {
+const AppRoute: React.FC<Props> = () => {
     return (
         <BrowserRouter>
             <Routes>
