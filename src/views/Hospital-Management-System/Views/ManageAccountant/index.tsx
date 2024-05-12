@@ -142,7 +142,7 @@ const LaboratoristDash: React.FC<Props> = ({ }) => {
                 }}
             >
                 <FormControl sx={{ flex: 1 }} size="sm">
-                    <FormLabel>Search laboratorist by name</FormLabel>
+                    <FormLabel>Search Accountant by name</FormLabel>
                     <Input size="sm" placeholder="Search" startDecorator={<SearchIcon />} />
                 </FormControl>
                 {renderFilters()}
