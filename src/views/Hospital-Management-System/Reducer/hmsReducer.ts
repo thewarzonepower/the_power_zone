@@ -3,11 +3,13 @@ import {
 } from '../Interface/hmsType';
 
 type InitialState = {
-    loading:boolean
+    loading:boolean;
+    patientList:any;
 }
 
 const initialState:InitialState = {
     loading:false,
+    patientList:[]
 }
 
 const HMSReducer = (
@@ -20,6 +22,12 @@ const HMSReducer = (
             ...state,
             loading:action.payload
         };
+        case ACTIONS.GET_PATIENT_LIST:
+            return {
+              ...state,
+              patientList: action.payload,
+              loading: false
+            };
         default:
             return state;
     }
