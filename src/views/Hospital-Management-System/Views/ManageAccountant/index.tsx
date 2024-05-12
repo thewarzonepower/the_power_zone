@@ -17,7 +17,7 @@ const IconList = [
     <Hotel />,
     <Attribution />,
     <Woman2 />,
-    <Vaccines />,
+    <Vaccines />,   
     <Science />,
     <Badge />,
     <HelpCenter />,
