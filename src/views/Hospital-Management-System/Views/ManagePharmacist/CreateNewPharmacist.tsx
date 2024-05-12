@@ -26,7 +26,7 @@ interface Props {
   open: any;
   setOpen: any;
 }
-const CreateNewPatient: React.FC<Props> = ({ open, setOpen }) => {
+const CreateNewPharmacist: React.FC<Props> = ({ open, setOpen }) => {
   const [firstName, setFirstName] = useState<any>("");
   const [lastName, setLastName] = useState<any>("");
 
@@ -49,7 +49,7 @@ const CreateNewPatient: React.FC<Props> = ({ open, setOpen }) => {
             fontWeight="lg"
             mb={1}
           >
-            Add New Patient
+            Add New Pharmacist
           </Typography>
           <form
             onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
@@ -186,4 +186,4 @@ const CreateNewPatient: React.FC<Props> = ({ open, setOpen }) => {
     </React.Fragment>
   );
 };
-export default CreateNewPatient;
+export default CreateNewPharmacist;

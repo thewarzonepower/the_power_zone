@@ -11,6 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Table from '@mui/joy/Table';
 import Sheet from '@mui/joy/Sheet';
 import { patientList } from "../../../../utils/data";
+import CreateNewPharmacist from "./CreateNewPharmacist";
 
 const IconList = [
     <Person2 />,
@@ -27,6 +28,7 @@ interface Props {
 }
 
 const ManagePharmacistDash: React.FC<Props> = ({ }) => {
+    const [open, setOpen] = React.useState<boolean>(false);
     const renderFilters = () => (
         <React.Fragment>
           <FormControl size="sm">
@@ -121,6 +123,7 @@ const ManagePharmacistDash: React.FC<Props> = ({ }) => {
                     color="primary"
                     startDecorator={<DownloadRoundedIcon />}
                     size="sm"
+                    onClick={()=>setOpen(true)}
                 >
                     Add Pharmacist
                 </Button>
@@ -252,6 +255,7 @@ const ManagePharmacistDash: React.FC<Props> = ({ }) => {
                     </tbody>
                 </Table>
             </Sheet>
+            <CreateNewPharmacist open={open} setOpen={setOpen}/>
         </Box>
     )
 }

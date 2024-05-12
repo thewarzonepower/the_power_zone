@@ -44,19 +44,19 @@ export const getPatientList = (body: string) => async (
     }
 };
 
-export const createNewDiscrepancy = (body: any) => async (dispatch: Function) => {
+export const admitNewPatient = (body: any) => async (dispatch: Function) => {
     dispatch({ type: ACTIONS.SET_LOADING, payload: true });
     try {
-        const { data } = await axios.post(`${process.env.REACT_APP_API_PATH}api/discrepancy/create`, body, {
+        const { data } = await AXIOS.post(`/patients/admit`, body, {
             headers: { Authorization: `Bearer ${SecureStorage.getItem("token")}` },
         });
         dispatch({
-            type: ACTIONS.CREATE_NEW_DISCREPANCY,
+            type: ACTIONS.ADMIT_NEW_PATIENT,
             payload: data,
         });
         snackBarUpdate({
             payload: {
-                message: "Discrepancy Created Successfully",
+                message: "Patient Addmit Successfully",
                 status: true,
                 type: "success",
             },

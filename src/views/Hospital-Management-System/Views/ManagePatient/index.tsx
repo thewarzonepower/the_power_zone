@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AspectRatio, Avatar, Box, Breadcrumbs, Button, Card, CardContent, CardOverflow, FormControl, FormLabel, Grid, Input, Link, Select, Typography } from "@mui/joy";
 import Option from '@mui/joy/Option';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
@@ -12,6 +12,8 @@ import Table from '@mui/joy/Table';
 import Sheet from '@mui/joy/Sheet';
 import CreateNewPatient from "./CreateNewPatient";
 import { patientList } from "../../../../utils/data";
+import {getPatientList} from "../../Action/hmsAction"
+import { connect } from "react-redux";
 
 const IconList = [
     <Person2 />,
@@ -24,10 +26,14 @@ const IconList = [
     <HelpCenter />,
 ]
 interface Props {
-
+    getPatientList:any;
+    patientList:any;
 }
 
-const PatientDash: React.FC<Props> = ({ }) => {
+const PatientDash: React.FC<Props> = ({ 
+    getPatientList,
+    patientList
+}) => {
     const [open, setOpen] = React.useState<boolean>(false);
     const renderFilters = () => (
         <React.Fragment>
@@ -56,6 +62,10 @@ const PatientDash: React.FC<Props> = ({ }) => {
        
         </React.Fragment>
       );
+
+      useEffect(()=>{
+        getPatientList()
+      },[])
     return (
         <Box
             component="main"
@@ -188,11 +198,11 @@ const PatientDash: React.FC<Props> = ({ }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {patientList.map((row: any) => (
+                        {patientList.map((row: any,index:any) => (
                             <tr key={row.id}>
                                 <td>
                                     <Typography level="body-xs">
-                                        {row.id}
+                                        {index}
                                     </Typography>
                                 </td>
                                 <td>
@@ -202,7 +212,7 @@ const PatientDash: React.FC<Props> = ({ }) => {
                                 </td>
                                 <td>
                                     <Typography level="body-xs">
-                                        {row.name}
+                                        {`${row.firstName} ${row.lastName}`}
                                     </Typography>
                                 </td>
                                 <td>
@@ -260,4 +270,9 @@ const PatientDash: React.FC<Props> = ({ }) => {
     )
 }
 
-export default PatientDash
+const mapStateToProps=(state:any)=>({
+    patientList:state.HMSReducer.patientList
+})
+export default connect(mapStateToProps,{
+    getPatientList
+})(PatientDash);
